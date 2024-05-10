@@ -1,23 +1,24 @@
-import { ADD_FAVOURITE_SONG, REMOVE_FAVOURITE_SONG } from "../actions";
+import {
+  ADD_TO_FAVOURITES, // DELETE_FROM_FAVOURITES }
+} from "../actions";
 
 const initialState = {
-  content: [],
+  favourites: [],
 };
-const favouriteSongReduce = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_FAVOURITE_SONG:
-      return {
-        ...state,
-        content: [...state.content, action.payload],
-      };
-    case REMOVE_FAVOURITE_SONG:
-      return {
-        ...state,
-        content: state.content.filter((_, i) => i !== action.payload),
-      };
 
+export const favouritesReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_TO_FAVOURITES:
+      return {
+        ...state,
+        favourites: [...state.favourites, action.payload],
+      };
+    // case DELETE_FROM_FAVOURITES:
+    // return {
+    // ...state,
+    //favourites: state.favourites.filter(item => item !== action.payload),
+    //};
     default:
       return state;
   }
 };
-export default favouriteSongReduce;

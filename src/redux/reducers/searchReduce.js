@@ -1,11 +1,11 @@
 import { GET_SONGS } from "../actions";
 
-const inizialState = {
+const initialState = {
   content: [],
   query: "",
 };
 
-const searchReduce = (state = inizialState, action) => {
+const searchReduce = (state = initialState, action) => {
   switch (action.type) {
     case GET_SONGS:
       return {

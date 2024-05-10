@@ -1,10 +1,12 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import favouriteSongReduce from "../reducers/favouriteSongReduce";
 import searchReduce from "../reducers/searchReduce";
+import songReduce from "../reducers/songReduce";
+import { favouritesReducer } from "../reducers/favouriteSongReduce";
 
 const bigReducer = combineReducers({
-  favouriteSong: favouriteSongReduce,
+  favourites: favouritesReducer,
   searchSong: searchReduce,
+  songOnPlay: songReduce,
 });
 
 const store = configureStore({

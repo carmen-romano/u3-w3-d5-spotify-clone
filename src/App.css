@@ -94,7 +94,7 @@ ul {
 /* BOTTOM PLAYER SECTION*/
 
 .bg-container {
-  height: 7rem;
+  height: 8rem;
   background-color: #282828;
 }
 
@@ -180,6 +180,12 @@ ul {
   align-items: center !important;
   justify-content: space-evenly !important;
 }
-.selected {
-  color: red;
+.svg {
+  border: transparent;
+}
+.player {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
 }

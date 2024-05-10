@@ -3,9 +3,11 @@ import { Form, Button, InputGroup } from "react-bootstrap";
 
 import { useDispatch } from "react-redux";
 import { searchSong } from "../redux/actions/index.js";
+import { useNavigate } from "react-router-dom";
 
 const SearchRes = () => {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -16,6 +18,7 @@ const SearchRes = () => {
     e.preventDefault();
     if (query.length > 0) {
       dispatch(searchSong(query));
+      navigate("/result");
     }
   };
 

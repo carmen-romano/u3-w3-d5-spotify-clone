@@ -1,24 +1,22 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import MyNavbar from "./components/MyNavbar";
 import { Container } from "react-bootstrap";
-import MainSection from "./components/MainSection";
-import Player from "./components/Player";
-import HomeFetchResult from "./components/HomeFetchResult";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePg from "./components/HomePg";
 import SongResult from "./components/SongResult";
+import BraniPreferiti from "./components/BraniPreferiti";
 
 function App() {
   return (
     <>
       <Container fluid>
-        <MyNavbar />
-        <MainSection />
-        <SongResult />
-        <HomeFetchResult query={"rock"} />
-        <HomeFetchResult query={"rock"} />
-        <HomeFetchResult query={"rock"} />
-        <HomeFetchResult query={"rock"} />
-        <Player />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePg />} />
+            <Route path="/result" element={<SongResult />} />
+            <Route path="/preferiti" element={<BraniPreferiti />} />
+          </Routes>
+        </BrowserRouter>
       </Container>
     </>
   );

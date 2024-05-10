@@ -1,24 +1,23 @@
 export const ADD_FAVOURITE_SONG = "ADD_FAVOURITE_SONG";
 export const REMOVE_FAVOURITE_SONG = "REMOVE_FAVOURITE_SONG";
 export const GET_SONGS = "GET_SONGS";
+export const ADD_CLICKED_SONG = "ADD_CLICKED_SONG";
+export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
+export const DELETE_FROM_FAVOURITES = "DELETE_FROM_FAVOURITES";
 
-export const addFavouriteSong = songId => {
-  return (dispatch, getState) => {
-    const state = getState();
-    const isAlreadyAdded = state.favouriteCompany.content.includes(songId);
-
-    if (!isAlreadyAdded) {
-      dispatch({
-        type: ADD_FAVOURITE_SONG,
-        payload: songId,
-      });
-    }
+export const addToFavouritesAction = track => {
+  return {
+    type: ADD_TO_FAVOURITES,
+    payload: track,
   };
 };
-export const RemoveFavouriteSong = i => ({
-  type: REMOVE_FAVOURITE_SONG,
-  payload: i,
-});
+
+//export const deleteFromFavouritesAction = track => {
+// return {
+//    type: DELETE_FROM_FAVOURITES,
+//   payload: track,
+//  };
+//};
 
 export const searchSong = query => {
   return async dispatch => {
@@ -38,7 +37,12 @@ export const searchSong = query => {
         payload: fetchSongs,
       });
     } catch (error) {
-      console.log("error");
+      console.error("Errore durante la ricerca delle canzoni:", error);
     }
   };
 };
+
+export const songOnPlay = (image, title) => ({
+  type: ADD_CLICKED_SONG,
+  payload: { image, title },
+});
