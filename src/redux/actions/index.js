@@ -11,9 +11,9 @@ export const addToFavouritesAction = track => ({
   payload: track,
 });
 
-export const deleteFromFavouritesAction = song => ({
+export const deleteFromFavouritesAction = id => ({
   type: DELETE_FROM_FAVOURITES,
-  payload: song,
+  payload: id,
 });
 
 export const searchSong = query => {
