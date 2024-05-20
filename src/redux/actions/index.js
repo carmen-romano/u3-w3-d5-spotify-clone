@@ -1,23 +1,20 @@
 export const ADD_FAVOURITE_SONG = "ADD_FAVOURITE_SONG";
-export const REMOVE_FAVOURITE_SONG = "REMOVE_FAVOURITE_SONG";
+
 export const GET_SONGS = "GET_SONGS";
 export const ADD_CLICKED_SONG = "ADD_CLICKED_SONG";
 export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
+
 export const DELETE_FROM_FAVOURITES = "DELETE_FROM_FAVOURITES";
 
-export const addToFavouritesAction = track => {
-  return {
-    type: ADD_TO_FAVOURITES,
-    payload: track,
-  };
-};
+export const addToFavouritesAction = track => ({
+  type: ADD_TO_FAVOURITES,
+  payload: track,
+});
 
-//export const deleteFromFavouritesAction = track => {
-// return {
-//    type: DELETE_FROM_FAVOURITES,
-//   payload: track,
-//  };
-//};
+export const deleteFromFavouritesAction = song => ({
+  type: DELETE_FROM_FAVOURITES,
+  payload: song,
+});
 
 export const searchSong = query => {
   return async dispatch => {

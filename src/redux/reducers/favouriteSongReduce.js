@@ -1,6 +1,5 @@
-import {
-  ADD_TO_FAVOURITES, // DELETE_FROM_FAVOURITES }
-} from "../actions";
+import { ADD_TO_FAVOURITES } from "../actions";
+import { DELETE_FROM_FAVOURITES } from "../actions";
 
 const initialState = {
   favourites: [],
@@ -13,11 +12,13 @@ export const favouritesReducer = (state = initialState, action) => {
         ...state,
         favourites: [...state.favourites, action.payload],
       };
-    // case DELETE_FROM_FAVOURITES:
-    // return {
-    // ...state,
-    //favourites: state.favourites.filter(item => item !== action.payload),
-    //};
+    case DELETE_FROM_FAVOURITES:
+      return {
+        ...state,
+        favourites: state.favourites.filter(
+          item => item.id !== action.payload.id
+        ),
+      };
     default:
       return state;
   }

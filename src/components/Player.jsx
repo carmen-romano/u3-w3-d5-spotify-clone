@@ -1,7 +1,10 @@
 import { Col, Container, NavLink, Row } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToFavouritesAction } from "../redux/actions";
+import {
+  addToFavouritesAction,
+  deleteFromFavouritesAction,
+} from "../redux/actions";
 
 const Player = () => {
   const trackOnPlay = useSelector(state => state.songOnPlay.clickedSong);
@@ -10,12 +13,16 @@ const Player = () => {
   console.log(favourites);
 
   const isFavourite = favourites?.some(
-    favourite => favourite.image.id === trackOnPlay.id
+    favourite => favourite.image.id === trackOnPlay.image.id
   );
-  console.log(isFavourite);
+
+  console.log("is favourite ", isFavourite);
+  console.log("track on play", trackOnPlay);
 
   const handleFavouriteClick = () => {
-    if (!isFavourite) {
+    if (isFavourite) {
+      dispatch(deleteFromFavouritesAction(trackOnPlay));
+    } else {
       dispatch(addToFavouritesAction(trackOnPlay));
     }
   };
